@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuestSystemAlert Disabler</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="main.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+</head>
+<body>
+  <div class="centraltext">
+    <h1 class="title">System Alert Disabler</h1>
+  </div>
+    <div class="centraltext">
+      <button id="disable" class="button-30">Enable/Disable Alerts</button>
+    </div>
+    <div class="buttonContainer">
+        <button class="button-30" id="shutdown">Shutdown</button>
+        <select class="modern-select" id="devices">
+          <option value="" disabled selected>Devices:</option>
+        </select>
+        <button class="button-30" id="restart">Reboot</button>
+    </div>
+    <script>
+      alert("Caution: Disabling system alerts will disable the menu for turning off the headset.")
+      const devicesSelect = document.getElementById('devices');
+      const powerOffButton = document.getElementById('shutdown');
+      const rebootButton = document.getElementById('restart');
+      const disableButton = document.getElementById('disable')
+      
+      window.electronAPI.onShowAlert((message) => {
+      alert(message);
+      });
+
+      window.electronAPI.onUpdateDevices((devices) => {
+          devicesSelect.innerHTML = '';
+          devices.forEach(device => {
+              const option = document.createElement('option');
+              option.value = device;
+              option.textContent = device;
+              devicesSelect.appendChild(option);
+          });
+      });
+
+      powerOffButton.addEventListener('click', () => {
+            const selectedDevice = devicesSelect.value;
+            if (selectedDevice) {
+                window.electronAPI.powerOffDevice(selectedDevice).then(result => {
+                        alert(result.message);
+                    });
+            } else {
+                alert('Por favor, selecciona un dispositivo primero.');
+            }
+        });
+
+        disableButton.addEventListener('click', () => {
+            const selectedDevice = devicesSelect.value;
+            if (selectedDevice) {
+                window.electronAPI.disableAlerts(selectedDevice).then(result => {
+                        alert(result.message);
+                    });
+            } else {
+                alert('Por favor, selecciona un dispositivo primero.');
+            }
+        });
+
+      rebootButton.addEventListener('click', () => {
+            const selectedDevice = devicesSelect.value;
+            if (selectedDevice) {
+                window.electronAPI.rebootDevice(selectedDevice).then(result => {
+                        alert(result.message);
+                    });
+            } else {
+                alert('Por favor, selecciona un dispositivo primero.');
+            }
+        });
+  </script>
+</body>
+</html>

@@ -2,8 +2,17 @@
   "name": "questsystemalertdisabler",
   "productName": "questsystemalertdisabler",
   "version": "1.0.0",
-  "description": "My Electron application description",
+  "description": "A app for disabling meta quest System Alerts",
   "main": "src/index.js",
+  "build": {
+    "appId": "com.brewthefox.questsystemalertdisabler",
+    "win": {
+      "target": "zip"
+    },
+    "linux": {
+      "target": "AppImage"
+    }
+  },
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package",
@@ -20,7 +29,8 @@
     "@electron-forge/plugin-auto-unpack-natives": "^7.5.0",
     "@electron-forge/plugin-fuses": "^7.5.0",
     "@electron/fuses": "^1.8.0",
-    "electron": "32.1.2"
+    "electron": "32.1.2",
+    "electron-builder": "^25.0.5"
   },
   "keywords": [],
   "author": "brewthefox",

@@ -10,7 +10,7 @@ This program allows users to enable or disable system alerts on Meta Quest VR de
 
 ## ⚠️ Important Warning
 
-**Disabling system alerts WILL permanently damage the power menu of your Meta Quest device.** Once the alerts are disabled, the power menu will stop functioning correctly, making it impossible to reboot or shut down the device using the standard options.
+**Disabling system alerts WILL damage the power menu of your Meta Quest device until you re-enable them.** Once the alerts are disabled, the power menu will stop functioning correctly, making it impossible to reboot or shut down the device using the standard options.
 
 Additionally, disabling alerts such as temperature warnings can cause **serious overheating**, which may lead to irreversible hardware damage. ⚠️ Be extremely cautious and ensure you understand the risks before using this tool.
 

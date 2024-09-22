@@ -1,7 +1,7 @@
 {
   "name": "questsystemalertdisabler",
   "productName": "questsystemalertdisabler",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A app for disabling meta quest System Alerts",
   "main": "src/index.js",
   "build": {

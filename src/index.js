@@ -43,16 +43,16 @@ function checkDevices() {
 }
 function disableAlert(deviceId) {
   return new Promise((resolve, reject) => {
-    exec(`adb -s ${deviceId} shell ls /sdcard/SystemAlertDisabled.txt`, (err, stdout, stderr) => {
+    exec(`adb -s ${deviceId} shell "ls /sdcard/SystemAlertDisabled.txt"`, (err, stdout, stderr) => {
       if (stdout.trim() == "/sdcard/SystemAlertDisabled.txt"){
         exec(`adb -s ${deviceId} shell pm enable com.oculus.vralertservice`);
-        exec(`adb -s ${deviceId} shell rm /sdcard/SystemAlertDisabled.txt`);
+        exec(`adb -s ${deviceId} shell "rm /sdcard/SystemAlertDisabled.txt"`);
         console.log("E");
         resolve("Enabled Alerts");
       }
       else {
         console.log(stdout);
-        exec(`adb -s ${deviceId} shell 'echo "1" > /sdcard/SystemAlertDisabled.txt'`);
+        exec(`adb -s ${deviceId} shell "echo 1 > /sdcard/SystemAlertDisabled.txt"`);
         exec(`adb -s ${deviceId} shell pm disable-user --user 0 com.oculus.vralertservice`);
         console.log("D");
         resolve("Disabled Alerts");

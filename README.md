@@ -15,13 +15,13 @@ This program allows users to enable or disable system alerts on Meta Quest VR de
 Additionally, disabling alerts such as temperature warnings can cause **serious overheating**, which may lead to irreversible hardware damage. ⚠️ Be extremely cautious and ensure you understand the risks before using this tool.
 
 ## 📝 Usage Instructions
-
 1. 🖱️ Select your **Meta Quest device** from the dropdown menu.
 2. 🔔 Click the **Enable/Disable Alerts** button to toggle system alerts.
    - When alerts are disabled, the device will not display critical warnings such as high temperature.
    - **Note**: Activating this option will **immediately** cause the power menu to malfunction. ⚡
 3. 🔌 Use the **Shutdown** or **Reboot** buttons to manually turn off or restart your device after making changes.
-
+4. 🧰 **Important**: This tool requires ADB (Android Debug Bridge) to be installed and accessible from your system’s PATH. You can verify this by running adb --version in your terminal.
+   
 ## 🖼️ Interface
 
 ![Program Interface](https://github.com/BrewTheFox/QuestSystemAlertDisabler/blob/master/images/Captura%20de%20pantalla_20240921_205100.png)
